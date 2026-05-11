@@ -33,17 +33,63 @@ class SuscripcionStreaming:
          self.saldo_pendiente = 0
 
    def realizar_pago(self, monto):
-       """Reduce el saldo pendiente según el monto pagado."""
-       self.saldo_pendiente -= monto
+       if monto > 0:
+           self.saldo_pendiente -= monto
+           if self.saldo_pendiente < 0:
+               self.saldo_pendiente = 0
+           print(f"{self.usuario} pagó ${monto}. Saldo pendiente: ${self.saldo_pendiente:.2f}")
+       else:
+           print("El monto debe ser mayor a 0")
 
    def cambiar_suscripcion(self, nuevo_tipo):
-       """Cambia el tipo de suscripción y actualiza el costo mensual."""
-       self.tipo_suscripcion = nuevo_tipo
-       self.costo_mensual = self.costos_suscripcion[nuevo_tipo]
+       if nuevo_tipo in self.costos_suscripcion:
+           self.tipo_suscripcion = nuevo_tipo
+           self.costo_mensual = self.costos_suscripcion[nuevo_tipo]
+           self.saldo_pendiente += self.costo_mensual
+           print(f"{self.usuario} cambió a suscripción {nuevo_tipo}. Nuevo saldo pendiente: ${self.saldo_pendiente:.2f}")
+       else:
+           print("Tipo de suscripción inválido")
+
    def ver_contenido_exclusivo(self):
-       """Permite ver contenido exclusivo según el tipo de suscripción."""
-       pass
+       if self.tipo_suscripcion == "Gratis":
+           print(f"{self.usuario} con suscripción Gratis no tiene acceso a contenido exclusivo.")
+       elif self.tipo_suscripcion == "Estándar":
+           print(f"{self.usuario} con suscripción Estándar puede ver contenido exclusivo estándar.")
+       elif self.tipo_suscripcion == "Premium":
+           print(f"{self.usuario} con suscripción Premium puede ver todo el contenido exclusivo.")
 
    def mostrar_info_suscripcion(self):
-       """Muestra la información de la suscripción del usuario."""
-       pass  
+       print(f"\n--- Información de Suscripción ---")
+       print(f"Usuario: {self.usuario}")
+       print(f"Tipo de Suscripción: {self.tipo_suscripcion}")
+       print(f"Costo Mensual: ${self.costo_mensual:.2f}")
+       print(f"Saldo Pendiente: ${self.saldo_pendiente:.2f}")
+       print(f"-----------------------------------\n")
+
+
+# Pruebas con instancias
+# Usuario 1: Gratis -> Estándar -> Pago
+usuario1 = SuscripcionStreaming("Juan", "Gratis")
+print("=== USUARIO 1: JUAN ===")
+usuario1.ver_contenido_exclusivo()
+usuario1.cambiar_suscripcion("Estándar")
+usuario1.realizar_pago(5.99)
+usuario1.mostrar_info_suscripcion()
+
+# Usuario 2: Estándar -> Premium -> Dos pagos
+usuario2 = SuscripcionStreaming("María", "Estándar")
+print("=== USUARIO 2: MARÍA ===")
+usuario2.saldo_pendiente += usuario2.costo_mensual
+usuario2.ver_contenido_exclusivo()
+usuario2.cambiar_suscripcion("Premium")
+usuario2.realizar_pago(10.99)
+usuario2.realizar_pago(5.98)
+usuario2.mostrar_info_suscripcion()
+
+# Usuario 3: Premium -> Pago parcial -> Ver contenido
+usuario3 = SuscripcionStreaming("Carlos", "Premium")
+print("=== USUARIO 3: CARLOS ===")
+usuario3.saldo_pendiente += usuario3.costo_mensual
+usuario3.realizar_pago(5.00)
+usuario3.ver_contenido_exclusivo()
+usuario3.mostrar_info_suscripcion()  

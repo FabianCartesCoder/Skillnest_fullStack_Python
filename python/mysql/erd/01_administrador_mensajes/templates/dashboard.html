@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard – Usuario</title>
+  <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body class="full">
+  <div class="dashboard-shell">
+
+    <header class="topbar">
+      <span class="topbar-title">Dashboard</span>
+      <a href="1_login_registro.html" class="btn btn-ghost btn-sm">Cerrar sesión</a>
+    </header>
+
+    <main class="dashboard-main">
+      <h1 style="margin-bottom:1.4rem">Usuarios</h1>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>E-mail</th>
+            <th>Tipo Usuario</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Patricia</td>
+            <td>patricia@codingdojo.com</td>
+            <td><span class="badge badge-admin">Admin</span></td>
+            <td>
+              <div class="actions">
+                <button class="icon-btn" title="Enviar mensaje" onclick="location.href='6_mensajes.html'">✉️</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Andrea</td>
+            <td>andrea@codingdojo.com</td>
+            <td><span class="badge badge-user">Usuario</span></td>
+            <td>
+              <div class="actions">
+                <button class="icon-btn" title="Enviar mensaje" onclick="location.href='6_mensajes.html'">✉️</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Katyo</td>
+            <td>katyo@codingdojo.com</td>
+            <td><span class="badge badge-user">Usuario</span></td>
+            <td>
+              <div class="actions">
+                <button class="icon-btn" title="Enviar mensaje" onclick="location.href='6_mensajes.html'">✉️</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="text-muted mt-2" style="font-size:.78rem;">
+        ℹ️ Los usuarios solo pueden enviar mensajes.
+      </p>
+    </main>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+ 
+/* ─── Variables ─── */
+:root {
+  --bg:         #f4f3ef;
+  --surface:    #ffffff;
+  --border:     #d8d5cc;
+  --text:       #1a1916;
+  --muted:      #7a7870;
+  --accent:     #2a5cff;
+  --accent-h:   #1a3fd9;
+  --danger:     #e03535;
+  --warning-bg:#fff3cd;
+  --warning-bd:#f0c040;
+  --note-bg:    #fef9c3;
+  --note-bd:    #f0c040;
+  --radius:     6px;
+  --shadow:     0 2px 8px rgba(0,0,0,.08);
+}
+ 
+/* ─── Reset ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 15px; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2.5rem 1rem;
+}
+ 
+/* ─── Card wrapper ─── */
+.page-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  width: 50%;
+  max-width: 520px;
+  padding: 2.5rem 2.75rem;
+}
+ 
+/* ─── Headings ─── */
+h1 {
+  font-size: 1.65rem;
+  font-weight: 600;
+  letter-spacing: -.03em;
+  margin-bottom: 1.6rem;
+}
+h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: -.02em;
+  margin-bottom: 1.2rem;
+}
+ 
+/* ─── Forms ─── */
+label {
+  display: block;
+  font-size: .78rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: .3rem;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  width: 50%;
+  padding: .55rem .75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: .9rem;
+  background: #fafaf8;
+  color: var(--text);
+  transition: border-color .15s, box-shadow .15s;
+  outline: none;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(42,92,255,.12);
+}
+.form-group { margin-bottom: 1rem; }
+ 
+/* ─── Buttons ─── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .4rem;
+  padding: .55rem 1.4rem;
+  border: none;
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: .88rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background .15s, transform .1s;
+}
+.btn:active { transform: scale(.97); }
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn-primary:hover { background: var(--accent-h); }
+.btn-sm {
+  padding: .35rem .85rem;
+  font-size: .8rem;
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover { background: #f0f4ff; }
+.btn-danger {
+  background: var(--danger);
+  color: #fff;
+}
+ 
+/* ─── Nav / topbar (dashboard) ─── */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.topbar-title {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -.02em;
+}
+ 
+/* ─── Table ─── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .87rem;
+}
+thead th {
+  text-align: left;
+  font-size: .72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: var(--muted);
+  padding: .5rem .75rem;
+  border-bottom: 2px solid var(--border);
+}
+tbody td {
+  padding: .6rem .75rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: #fafaf8; }
+ 
+/* ─── Badge ─── */
+.badge {
+  display: inline-block;
+  padding: .2rem .55rem;
+  border-radius: 20px;
+  font-size: .72rem;
+  font-weight: 600;
+}
+.badge-admin { background: #e8edff; color: var(--accent); }
+.badge-user  { background: #f0f0ee; color: var(--muted); }
+ 
+/* ─── Actions icon row ─── */
+.actions { display: flex; gap: .4rem; align-items: center; }
+.icon-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: .3rem .4rem;
+  cursor: pointer;
+  font-size: .82rem;
+  color: var(--muted);
+  transition: color .12s, background .12s;
+}
+.icon-btn:hover { background: #f0f0ee; color: var(--text); }
+.icon-btn.del:hover { background: #ffe8e8; color: var(--danger); border-color: #f0c0c0; }
+ 
+/* ─── Split layout (login + register side by side) ─── */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+.split-divider {
+  width: 1px;
+  background: var(--border);
+  align-self: stretch;
+}
+
+.page-card { max-width: 900px; }
+ 
+/* ─── Full-width page (dashboard) ─── */
+body.full { align-items: flex-start; padding: 0; }
+.dashboard-shell {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+}
+.dashboard-main {
+  padding: 2.5rem 2rem;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+}
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.6rem;
+}
+ 
+/* ─── Messages page ─── */
+.message-thread {
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+  margin-bottom: 1.5rem;
+}
+.message-bubble {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: .95rem;
+  line-height: 1.5;
+}
+.message-bubble:last-child { 
+  border-bottom: 1px solid var(--border);
+}
+.message-bubble .meta {
+  font-size: .85rem;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: .4rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.message-compose {
+  display: flex;
+  gap: .75rem;
+  margin-top: 1.5rem;
+  align-items: center;
+}
+.message-compose textarea,
+.message-compose input[type="text"] {
+  width: 100%;
+  min-height: 40px;
+  resize: none;
+}
+ 
+/* ─── Utility ─── */
+.mt-1 { margin-top: .5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mb-1 { margin-bottom: .5rem; }
+.text-right { text-align: right; }
+.text-muted { color: var(--muted); font-size: .85rem; }
+.flex { display: flex; }
+.flex-between { display: flex; align-items: center; justify-content: space-between; }
+.gap-1 { gap: .5rem; }
+.w-full { width: 100%; }
+
+/* ─── Ajustes específicos para Login / Registro Horizontal (NUEVO) ─── */
+.split .form-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.split label {
+  margin-bottom: 0;
+  text-align: right;
+  flex: 1;
+}
+
+.split input {
+  width: 65% !important; /* Forza a que los inputs se queden a la derecha del label */
+}
+
+.login-btn-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding-right: 15%; /* Alineación perfecta del botón del login en horizontal */
+}
+
+.split-divider-visible {
+  width: 1px;
+  background-color: var(--border);
+  align-self: stretch;
+  margin: 0 1.5rem;
+}
+ 
+/* ─── Responsive ─── */
+@media (max-width: 600px) {
+  .split { grid-template-columns: 1fr; gap: 1.5rem; }
+  .split-divider-visible { display: none; } /* Oculta la línea en móviles */
+  .page-card { padding: 1.5rem 1.25rem; }
+}

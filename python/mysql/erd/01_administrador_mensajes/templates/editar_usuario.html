@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Editar Usuario</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+  <style>
+    body { align-items: center; min-height: 100vh; }
+  </style>
+</head>
+<body>
+  <div class="page-card">
+    <div class="flex-between mb-1">
+      <h1 style="margin-bottom:0">Editar Usuario</h1>
+      <a href="2_dashboard_admin.html" class="btn btn-ghost btn-sm">← Volver</a>
+    </div>
+    <p class="text-muted" style="margin-bottom:1.4rem; font-size:.82rem;">
+      Se muestra la información del usuario a editar.
+    </p>
+
+    <div class="form-group">
+      <label>Nombre</label>
+      <input type="text" value="Patricia" />
+    </div>
+    <div class="form-group">
+      <label>E-mail</label>
+      <input type="email" value="patricia@codingdojo.com" />
+    </div>
+    <div class="form-group">
+      <label>Contraseña</label>
+      <input type="password" value="password123" />
+    </div>
+    <div class="form-group">
+      <label>Conf. Contraseña</label>
+      <input type="password" value="password123" />
+    </div>
+    <div class="form-group">
+      <label>Tipo de Usuario</label>
+      <select>
+        <option value="admin" selected>Administrador</option>
+        <option value="usuario">Usuario</option>
+      </select>
+    </div>
+
+    <div class="mt-3 text-right">
+      <button class="btn btn-primary">Guardar</button>
+    </div>
+  </div>
+</body>
+</html>

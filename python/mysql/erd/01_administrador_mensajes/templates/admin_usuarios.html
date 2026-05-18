@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard – Admin</title>
+  <link rel="stylesheet" href="../static/css/styles.css">
+  <style>
+    body.full { background: var(--bg); }
+  </style>
+</head>
+<body class="full">
+  <div class="dashboard-shell">
+
+    <header class="topbar">
+      <span class="topbar-title">Dashboard — Admin</span>
+      <a href="1_login_registro.html" class="btn btn-ghost btn-sm">Cerrar sesión</a>
+    </header>
+
+    <main class="dashboard-main">
+      <div class="dashboard-header">
+        <h1 style="margin-bottom:0">Usuarios</h1>
+        <a href="3_nuevo_usuario.html" class="btn btn-primary btn-sm">+ Nuevo Usuario</a>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>E-mail</th>
+            <th>Tipo Usuario</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Patricia</td>
+            <td>patricia@codingdojo.com</td>
+            <td><span class="badge badge-admin">Admin</span></td>
+            <td>
+              <div class="actions">
+                <button class="icon-btn" title="Editar" onclick="location.href='4_editar_usuario.html'">✏️</button>
+                <button class="icon-btn del" title="Eliminar">🗑️</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Andrea</td>
+            <td>andrea@codingdojo.com</td>
+            <td><span class="badge badge-user">Usuario</span></td>
+            <td>
+              <div class="actions">
+                <button class="icon-btn" title="Editar" onclick="location.href='4_editar_usuario.html'">✏️</button>
+                <button class="icon-btn del" title="Eliminar">🗑️</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Katyo</td>
+            <td>katyo@codingdojo.com</td>
+            <td><span class="badge badge-user">Usuario</span></td>
+            <td>
+              <div class="actions">
+                <button class="icon-btn" title="Editar" onclick="location.href='4_editar_usuario.html'">✏️</button>
+                <button class="icon-btn del" title="Eliminar">🗑️</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="text-muted mt-2" style="font-size:.78rem;">
+        ℹ️ Los administradores pueden crear, editar y borrar usuarios.
+      </p>
+    </main>
+
+  </div>
+</body>
+</html>
